@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
 
+* {
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 1.1rem;
+}
+
 .DiaryEditor {
   padding: 0 0 2.5rem 0;
   margin-top: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.DiaryEditor * {
-  font-family: "Nanum Pen Script", cursive;
-  font-size: 1.4rem;
 }
 
 .DiaryEditor h2 {
@@ -44,4 +44,41 @@ textarea {
 .DiaryEditor button:hover {
   background-color: black;
   color: white;
+}
+
+/* List */
+
+.DiaryList {
+  border: 1px solid grey;
+  padding: 1.25rem;
+  margin-top: 9.375rem;
+}
+
+.DiaryList h2 {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.DiaryList ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.DiaryItem {
+  background-color: rgb(240, 240, 240);
+  margin-bottom: 0.625rem;
+  padding: 1.25rem;
+}
+
+.DiaryItem:hover {
+  background-color: white;
+}
+
+.DiaryItem .info {
+  border-bottom: 1px solid gray;
+  padding-bottom: 0.625rem;
+}
+
+.DiaryItem .content {
+  margin: 1.438rem 0;
 }
