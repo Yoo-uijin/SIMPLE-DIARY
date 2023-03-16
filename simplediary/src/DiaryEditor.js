@@ -1,7 +1,7 @@
 import React from "react";
 import { useRef, useState } from "react";
 
-const DiaryEditor = () => {
+const DiaryEditor = ({ onCreate }) => {
   const now = new Date();
   let year = now.getFullYear();
   let month = (now.getMonth() + 1).toString();
@@ -29,8 +29,9 @@ const DiaryEditor = () => {
       contentInput.current.focus();
       return;
     }
-    console.log(state);
+    onCreate(state.date, state.content, state.emotion);
     alert("저장완료☑️");
+    setState({ date: state.date, content: "내용", emotion: 3 });
   };
 
   return (
