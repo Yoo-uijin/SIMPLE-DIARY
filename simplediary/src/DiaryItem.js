@@ -1,6 +1,12 @@
 import React from "react";
 
 const DiaryItem = ({ date, content, emotion, id, onRemove }) => {
+  const handleRemove = () => {
+    if (window.confirm(`${id}번째 일기를 정말 삭제하시겠습니까?`)) {
+      onRemove(id);
+    }
+  };
+
   return (
     <li className="DiaryItem">
       <div className="info">
@@ -9,15 +15,7 @@ const DiaryItem = ({ date, content, emotion, id, onRemove }) => {
         </span>
       </div>
       <div className="content">{content}</div>
-      <button
-        onClick={() => {
-          if (window.confirm(`${id}번째 일기를 정말 삭제하시겠습니까?`)) {
-            onRemove(id);
-          }
-        }}
-      >
-        삭제
-      </button>
+      <button onClick={handleRemove}>삭제</button>
     </li>
   );
 };
