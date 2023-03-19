@@ -82,3 +82,9 @@ textarea {
 .DiaryItem .content {
   margin: 1.438rem 0;
 }
+
+.DiaryItem textarea {
+  resize: none;
+  box-sizing: border-box;
+  width: 100%;
+}
