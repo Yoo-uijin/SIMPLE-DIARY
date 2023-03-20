@@ -9,14 +9,24 @@ const CounterA = React.memo(({ count }) => {
   return <div>{count}</div>;
 });
 
-const CounterB = React.memo(({ obj }) => {
+const CounterB = ({ obj }) => {
   useEffect(() => {
     console.log(`CounterB Update - ${obj.count}`);
     // 리렌더링되어 콘솔창에 업데이트 결과가 출력된다. 객체는 얕은 비교를 하기 때문이다.
   });
 
   return <div>{obj.count}</div>;
-});
+};
+
+// 별도의 비교를 돕기 위해 만든 컴포넌트
+const areEqual = (prevProps, nextProps) => {
+  if (prevProps.obj.count === nextProps.obj.count) {
+    return true;
+  }
+  return false;
+};
+
+const MemoizedCounterB = React.memo(CounterB, areEqual);
 
 const OptimizeTest = () => {
   const [count, setCount] = useState(1);
@@ -39,7 +49,7 @@ const OptimizeTest = () => {
       </div>
       <div>
         <h2>Counter B</h2>
-        <CounterB obj={obj} />
+        <MemoizedCounterB obj={obj} />
         <button
           onClick={() => {
             setObj({ count: obj.count });
