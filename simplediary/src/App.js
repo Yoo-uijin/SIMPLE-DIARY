@@ -3,6 +3,7 @@ import { useRef, useState, useEffect, useMemo } from "react";
 import "./App.css";
 import DiaryEditor from "./DiaryEditor";
 import DiaryList from "./DiaryList";
+import OptimizeTest from "./OptimizeTest";
 
 function App() {
   const [data, setData] = useState([]);
@@ -64,6 +65,7 @@ function App() {
 
   return (
     <div className="App">
+      <OptimizeTest />
       <DiaryEditor onCreate={onCreate} />
       <ul
         style={{
