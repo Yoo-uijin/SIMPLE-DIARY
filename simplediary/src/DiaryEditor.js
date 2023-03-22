@@ -1,7 +1,9 @@
-import React from "react";
-import { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
+import { DiaryDispatchContext } from "./App";
 
-const DiaryEditor = ({ onCreate }) => {
+const DiaryEditor = () => {
+  const { onCreate } = useContext(DiaryDispatchContext);
+
   const now = new Date();
   let year = now.getFullYear();
   let month = (now.getMonth() + 1).toString();
